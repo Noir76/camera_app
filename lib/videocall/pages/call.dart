@@ -125,16 +125,16 @@ class _CallPageState extends State<CallPage> {
               setState(() {
               muted = !muted;
               });
-              _engine. muteLocalAudioStream(muted);
+              _engine.muteLocalAudioStream(muted);
             },
             child: Icon(
               muted ? Icons.mic_off : Icons.mic,
               color: muted? Colors.white : Colors.blueAccent,
               size: 20.0,
               ), // Icon
-          shape: const CircleBorder(),
-          elevation: 2.0,
-          fillColor: muted ? Colors.blueAccent : Colors.white,
+              shape: const CircleBorder(),
+              elevation: 2.0,
+              fillColor: muted ? Colors.blueAccent : Colors.white,
           padding: const EdgeInsets.all(12.0),
           ), // RawMaterialButton
           RawMaterialButton(

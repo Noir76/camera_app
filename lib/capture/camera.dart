@@ -130,6 +130,27 @@ class _CameraAppState extends State<CameraApp> {
 
   }
 
+  Widget _toolbar()
+  {
+    return Container(
+      alignment: Alignment.bottomCenter,
+      padding: const EdgeInsets.symmetric(vertical: 48),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          RawMaterialButton(
+            onPressed: switchCamera ,
+            child: const Icon(Icons.switch_camera),
+              ),
+          RawMaterialButton(
+            onPressed: _onPictureTaken,
+            child: const Icon(Icons.camera_alt),
+              ), // Icon
+        ]
+      ),
+    );
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -147,15 +168,7 @@ class _CameraAppState extends State<CameraApp> {
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          FloatingActionButton(
-            onPressed: switchCamera,
-            child: const Icon(Icons.switch_camera),
-          ),
-          SizedBox(height: 16),
-          FloatingActionButton(
-            onPressed: _onPictureTaken,
-            child: const Icon(Icons.camera_alt),
-          ),
+          _toolbar(),
           SizedBox(height: 16),
           FloatingActionButton(
             onPressed: () => navigateToHistoryPage(context),
