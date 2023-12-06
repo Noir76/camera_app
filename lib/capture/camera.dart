@@ -110,7 +110,11 @@ class _CameraAppState extends State<CameraApp> {
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(historyItem.toJson()),
+      // body: historyItem.toJson(),
+      body: jsonEncode({
+        "imagePath": historyItem.imagePath,
+        "locationInfo": historyItem.locationInfo
+      }),
     );
 
     if (response.statusCode == 200) {
@@ -180,31 +184,3 @@ class _CameraAppState extends State<CameraApp> {
   }
 }
 
-class DisplayPictureScreen extends StatelessWidget {
-  final String imagePath;
-  final String locationInfo;
-
-  const DisplayPictureScreen({
-    Key? key,
-    required this.imagePath,
-    required this.locationInfo,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Display the Picture')),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.file(File(imagePath)),
-          SizedBox(height: 20),
-          Text(
-            locationInfo,
-            style: TextStyle(fontSize: 18),
-          ),
-        ],
-      ),
-    );
-  }
-}

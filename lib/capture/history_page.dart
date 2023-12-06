@@ -20,6 +20,7 @@ class HistoryPage extends StatelessWidget {
     }
   }
 
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,8 +40,7 @@ class HistoryPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 final item = historyList[index];
                 return ListTile(
-                  // title: Image.file(File(item.imagePath)),
-                  title: Text(item.imagePath),
+                  title: Image.file(File(item.imagePath)),
                   subtitle: Text(item.locationInfo),
                 );
               },
